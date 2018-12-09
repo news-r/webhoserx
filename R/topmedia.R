@@ -1,3 +1,5 @@
+globalVariables(c(".", "name"))
+
 #' Top 100 media.
 #'
 #' A dataset containing top 100 media sources.
@@ -14,7 +16,7 @@
 #'
 #' Identify mentions from top media.
 #'
-#' @param wh object returned by \code{wh_collect}, see examples.
+#' @inheritParams e_highlights
 #'
 #' @examples
 #' \dontrun{
@@ -22,10 +24,10 @@
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"') %>%
-#'   wh_collect() -> wef # collect results
+#'   wh_news(q = '"R programming"') %>%
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_topmedia() -> topmedia
 #' }
 #'

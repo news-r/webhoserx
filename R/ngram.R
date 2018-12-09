@@ -1,6 +1,6 @@
 #' Get precending bigrams
 #'
-#' @param wh \emph{highlighted} object returned by \code{wh_collect}, see examples.
+#' @inheritParams e_highlights
 #' @param n number of terms, defaults to 2.
 #' @param flatten whether to flatten ngrams.
 #'
@@ -10,14 +10,15 @@
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"') %>%  # use highlight!
-#'   wh_collect() -> wef # collect results
+#'   wh_news(q = 'golang') %>%  # use highlight!
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_pre_gram() -> pre_bigrams
 #'
 #' library(dplyr)
-#' wef %>%
+#'
+#' rstats %>%
 #'   mutate(pre.gram = whe_pre_gram(highlightText, n = 3, flatten = TRUE)) -> pre_trigrams
 #' }
 #'
@@ -66,14 +67,14 @@ whe_pre_gram.character <- function(wh, n = 2, flatten = FALSE){
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"') %>%  # use highlight!
-#'   wh_collect() -> wef # collect results
+#'   wh_news(q = '"R programming"') %>%  # use highlight!
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_post_gram(3) -> post_trigrams
 #'
 #' library(dplyr)
-#' wef %>%
+#' rstats %>%
 #'   mutate(post.bigram = whe_post_gram(highlightText, flatten = TRUE)) -> post_bigrams
 #' }
 #'

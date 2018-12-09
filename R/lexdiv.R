@@ -1,8 +1,8 @@
-#' Analyse lexical diversity
+#' Lexical diversity
 #'
 #' Calculate the lexical diversity or complexity of text.
 #'
-#' @param wh object returned by \code{wh_collect}, see examples.
+#' @inheritParams e_highlights
 #' @param measure lexical diversity type to compute, passed to \link[quanteda]{textstat_lexdiv}.
 #'
 #' @examples
@@ -11,14 +11,15 @@
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"') %>%
+#'   wh_news(q = '"R programming"') %>%
 #'   wh_collect() -> wef # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_lexdiv() -> lexdiv
 #'
 #' library(dplyr)
-#' wef %>%
+#'
+#' rstats %>%
 #'   mutate(lexdiv = whe_lexdiv(text)) # pass text column
 #' }
 #'

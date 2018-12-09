@@ -2,10 +2,9 @@
 #'
 #' Compare articles with set of documents, i.e.: press releases.
 #'
-#' @param wh \emph{highlighted} object returned by \code{wh_collect}, see examples.
+#' @inheritParams e_highlights
 #' @param docs documents to compare the articles with.
 #' @param progress whether to show progress bar.
-#'
 #'
 #' @examples
 #' \dontrun{

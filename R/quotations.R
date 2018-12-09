@@ -2,7 +2,7 @@
 #'
 #' Identify articles with quotations.
 #'
-#' @param wh object returned by \code{wh_collect}, see examples.
+#' @inheritParams e_highlights
 #'
 #' @examples
 #' \dontrun{
@@ -10,7 +10,7 @@
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"') %>%
+#'   wh_news(q = '"R programming language"') %>%
 #'   wh_collect() -> wef # collect results
 #'
 #' wef %>%

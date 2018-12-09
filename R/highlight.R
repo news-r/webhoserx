@@ -2,7 +2,7 @@
 #'
 #' Extract highlighted terms
 #'
-#' @param wh \emph{highlighted} object returned by \link[webhoser]\code{wh_collect}, see examples.
+#' @param wh \emph{highlighted} object returned by \link[webhoser]{wh_collect}, see examples.
 #' @param flatten whether to flatten ngrams.
 #'
 #' @examples
@@ -12,23 +12,24 @@
 #'
 #' token %>%
 #'   wh_news(q = '"R programming language"') %>%  # use highlight!
-#'   wh_collect() -> wef # collect results
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_highlights() -> highlights
 #'
-#' highlights <- wef %>%
+#' highlights <- rstats %>%
 #'   dplyr::mutate(
 #'     nparagraphs = whe_highlights(text)
 #'   )
 #' }
 #'
-#' @rdname whe_highlights
+#' @name e_highlights
 #' @export
 whe_highlights <- function(wh, flatten = FALSE) UseMethod("whe_highlights")
 
-#' @rdname whe_highlights
+#' @rdname e_highlights
 #' @method whe_highlights data.frame
+#' @export
 whe_highlights.data.frame <- function(wh, flatten = FALSE){
   x <- lapply(stringr::str_extract_all(wh$highlightText, "<em>(.*?)</em>"), function(x){
     gsub("<em>|</em>", "", x)
@@ -41,8 +42,9 @@ whe_highlights.data.frame <- function(wh, flatten = FALSE){
   wh
 }
 
-#' @rdname whe_highlights
+#' @rdname e_highlights
 #' @method whe_highlights character
+#' @export
 whe_highlights.character <- function(wh, flatten = FALSE){
   x <- lapply(stringr::str_extract_all(wh$highlightText, "<em>(.*?)</em>"), function(x){
     gsub("<em>|</em>", "", x)

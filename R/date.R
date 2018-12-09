@@ -1,4 +1,4 @@
-#' format date
+#' Format date
 #'
 #' Format dates returned by API, see details.
 #'

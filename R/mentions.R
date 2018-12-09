@@ -2,7 +2,7 @@
 #'
 #' Counts number of mentions in highlighted text.
 #'
-#' @param wh \emph{highlighted} object returned by \code{wh_collect}, see examples.
+#' @inheritParams e_highlights
 #'
 #' @examples
 #' \dontrun{
@@ -10,14 +10,14 @@
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"') %>%  # use highlight!
-#'   wh_collect() -> wef # collect results
+#'   wh_news(q = '"R AND Python"') %>%  # use highlight!
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_mentions() -> nmentions
 #'
 #' library(dplyr)
-#' wef %>%
+#' rstats %>%
 #'   mutate(nmentions = whe_mentions(text)) -> mentions
 #' }
 #'

@@ -2,7 +2,7 @@
 #'
 #' Counts number of words in text.
 #'
-#' @param wh object returned by \code{wh_collect}, see examples.
+#' @inheritParams e_highlights
 #'
 #' @examples
 #' \dontrun{
@@ -10,14 +10,14 @@
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"') %>%
-#'   wh_collect() -> wef # collect results
+#'   wh_news(q = '"R programming"') %>%
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_words() -> nwords
 #'
 #' library(dplyr)
-#' wef %>%
+#' rstats %>%
 #'   mutate(nwords = whe_words(text)) -> words
 #' }
 #'
