@@ -1,0 +1,10 @@
+Package: webhoser.extension
+Title: Extension for the webhoser package
+Version: 0.0.1
+Authors@R: person("John", "Coene", email = "jcoenep@gmail.com", role = c("aut", "cre"))
+Description: Extension for the webhoser package.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+  dplyr
