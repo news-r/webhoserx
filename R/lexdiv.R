@@ -12,7 +12,7 @@
 #'
 #' token %>%
 #'   wh_news(q = '"R programming"') %>%
-#'   wh_collect() -> wef # collect results
+#'   wh_collect() -> rstats # collect results
 #'
 #' rstats %>%
 #'   whe_lexdiv() -> lexdiv

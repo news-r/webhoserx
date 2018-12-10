@@ -9,7 +9,6 @@ globalVariables(c(".", "name"))
 #'   \item{name}{name of media}
 #'   \item{thread.site}{site base url}
 #' }
-#' @source World Economic Forum
 "topmedia"
 
 #' Identify Media

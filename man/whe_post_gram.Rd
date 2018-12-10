@@ -33,14 +33,14 @@ library(webhose)
 token <- wh_token("xXX-x0X0xX0X-00X")
 
 token \%>\%
-  wh_news(q = '"World Economic Forum"') \%>\%  # use highlight!
-  wh_collect() -> wef # collect results
+  wh_news(q = '"R programming"') \%>\%  # use highlight!
+  wh_collect() -> rstats # collect results
 
-wef \%>\%
+rstats \%>\%
   whe_post_gram(3) -> post_trigrams
 
 library(dplyr)
-wef \%>\%
+rstats \%>\%
   mutate(post.bigram = whe_post_gram(highlightText, flatten = TRUE)) -> post_bigrams
 }
 

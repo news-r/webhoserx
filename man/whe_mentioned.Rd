@@ -39,6 +39,3 @@ mentioned <- rstats \%>\%
 }
 
 }
-\seealso{
-\code{\link{whe_mentioned_wef}}
-}

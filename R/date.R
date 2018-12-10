@@ -12,7 +12,7 @@
 #' \dontrun{
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
-#' wef <- wh_news(token, q = '"R programming language"') %>%  # use quote marks!
+#' rstats <- wh_news(token, q = '"R programming language"') %>%  # use quote marks!
 #'   wh_collect() %>% # collect results
 #'   dplyr::mutate(published = wh_date(published))
 #' }

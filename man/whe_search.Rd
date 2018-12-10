@@ -5,7 +5,7 @@
 \alias{whe_search.data.frame}
 \title{Search}
 \usage{
-whe_search(wh, search, output)
+whe_search(wh, search, output, where)
 
 \method{whe_search}{data.frame}(wh, search, output, where = "text")
 }
@@ -30,11 +30,11 @@ library(webhose)
 token <- wh_token("xXX-x0X0xX0X-00X")
 
 token \%>\%
-  wh_news(q = '"R programming"') \%>\%  # use highlight!
+  wh_news(q = '"R programming"') \%>\%
   wh_collect() -> rstats # collect results
 
 rstats \%>\%
-  whe_search("Hadley|Wickham", "HadleyWickham") -> hadley
+  whe_search("Hadley|Wickham", "Hadley_Wickham") -> hadley
 }
 
 }

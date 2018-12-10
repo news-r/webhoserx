@@ -32,7 +32,7 @@ token <- wh_token("xXX-x0X0xX0X-00X")
 
 token \%>\%
   wh_news(q = '"R programming"') \%>\%
-  wh_collect() -> wef # collect results
+  wh_collect() -> rstats # collect results
 
 rstats \%>\%
   whe_lexdiv() -> lexdiv

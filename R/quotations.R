@@ -11,13 +11,14 @@
 #'
 #' token %>%
 #'   wh_news(q = '"R programming language"') %>%
-#'   wh_collect() -> wef # collect results
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
+#' rstats %>%
 #'   whe_quotes() -> q
 #'
 #' library(dplyr)
-#' wef %>%
+#'
+#' rstats %>%
 #'   mutate(quotes = whe_quotes(text)) # pass text column
 #' }
 #'

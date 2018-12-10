@@ -23,8 +23,6 @@
 #' @return if \code{data.frame} is passed will append a column named \code{mentioned}.
 #' If \code{character} vector is passed the function returns a \code{character} vector.
 #'
-#' @seealso \code{\link{whe_mentioned_wef}}
-#'
 #' @rdname whe_mentioned
 #' @export
 whe_mentioned <- function(wh) UseMethod("whe_mentioned")

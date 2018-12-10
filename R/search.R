@@ -13,18 +13,18 @@
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"R programming"') %>%  # use highlight!
+#'   wh_news(q = '"R programming"') %>%
 #'   wh_collect() -> rstats # collect results
 #'
 #' rstats %>%
-#'   whe_search("Hadley|Wickham", "HadleyWickham") -> hadley
+#'   whe_search("Hadley|Wickham", "Hadley_Wickham") -> hadley
 #' }
 #'
 #' @return Returns the number of times the \code{search} was found.
 #'
 #' @rdname whe_search
 #' @export
-whe_search <- function(wh, search, output) UseMethod("whe_search")
+whe_search <- function(wh, search, output, where) UseMethod("whe_search")
 
 #' @rdname whe_search
 #' @method whe_search data.frame
@@ -53,9 +53,9 @@ whe_search.data.frame <- function(wh, search, output, where = "text"){
 
 #' Search in the first paragraph
 #'
-#' Search the number of times something is present in the first parargraph.
+#' Search the number of times a regex is present in the first parargraph.
 #'
-#' @param wh \emph{text} object returned by \code{wh_collect}, see examples.
+#' @inheritParams whe_search
 #'
 #' @examples
 #' \dontrun{
@@ -63,56 +63,42 @@ whe_search.data.frame <- function(wh, search, output, where = "text"){
 #' token <- wh_token("xXX-x0X0xX0X-00X")
 #'
 #' token %>%
-#'   wh_news(q = '"World Economic Forum"', highlight = TRUE) %>%  # use highlight!
-#'   wh_collect() -> wef # collect results
+#'   wh_news(q = '"R programming" OR rstats', highlight = TRUE) %>%
+#'   wh_collect() -> rstats # collect results
 #'
-#' wef %>%
-#'   whe_mentioned_wef_1p() -> mentioned
-#'
-#' mentioned <- wef %>%
-#'   dplyr::mutate(nmentioned_wef = whe_mentioned_wef_1p(text))
+#' rstats %>%
+#'   whe_search_1p("Hadley")
 #' }
 #'
-#' @return if \code{data.frame} is passed will append a boolean column named \code{mentioned.wef.1p}.
+#' @return if \code{data.frame} is passed will append a boolean column named \code{output}.
 #' If \code{character} vector is passed the function returns a \code{logical} vector.
 #'
 #' @seealso \code{\link{whe_mentioned}}
 #'
-#' @rdname whe_mentioned_wef_1p
+#' @rdname whe_search_1p
 #' @export
-whe_search_1p <- function(wh) UseMethod("whe_mentioned_wef_1p")
+whe_search_1p <- function(wh, search, output) UseMethod("whe_search_1p")
 
-#' @rdname whe_mentioned_wef_1p
-#' @method whe_mentioned_wef_1p data.frame
+#' @rdname whe_search_1p
+#' @method whe_search_1p data.frame
 #' @export
-whe_search_1p.data.frame <- function(wh){
+whe_search_1p.data.frame <- function(wh, search, output){
+
+  if(missing(search))
+    stop("missing search", call. = FALSE)
+
   para <- lapply(wh$text, function(x){
     tokenizers::tokenize_paragraphs(x, paragraph_break = "\n")[[1]][1]
   })
 
-  mentions <- sapply(para, function(x){
-    stringr::str_extract_all(x, "World Economic Forum|WEF")
-  })
+  mentions <- sapply(para, function(x, y){
+    grep(x, y)
+  }, y = search) %>%
+    lapply(., function(x){
+      ifelse(length(x), x,  0)
+    }) %>%
+    unlist()
 
-  wh$mentioned.wef.1p <- sapply(mentions, function(x){
-    ifelse(length(x), TRUE, FALSE)
-  })
+  wh[[output]] <- mentions
   wh
-}
-
-#' @rdname whe_mentioned_wef_1p
-#' @method whe_mentioned_wef_1p character
-#' @export
-whe_search_1p.character <- function(wh){
-  para <- lapply(wh, function(x){
-    tokenizers::tokenize_paragraphs(x, paragraph_break = "\n")[[1]][1]
-  })
-
-  mentions <- sapply(para, function(x){
-    stringr::str_extract_all(x, "World Economic Forum|WEF")
-  })
-
-  sapply(mentions, function(x){
-    ifelse(length(x), TRUE, FALSE)
-  })
 }

@@ -19,8 +19,8 @@ Functions from the `webhoser` package start with `wh` while functions of the `we
 * `whe_words` count words.
 * `whe_topmedia` identify mentions from top media.
 * `whe_mentioned` count number of paragraphs with mentions of any term from search.
-* `whe_mentioned_wef` count number of paragraphs with mentions of the WEF.
-* `whe_mentioned_wef_1p` identify if WEF is mentioned in 1st paragraph.
+* `whe_search` counts the number of times a regular expression is found in a particular column.
+* `whe_search_1p` get number of times a regular expression in found in the first paragraph.
 * `whe_mentions` counts number of mentions (highlighted terms).
 * `whe_highlight` extract mentions (highlighted terms).
 * `whe_entities` split flattened entities: `persons`, `organizations` or `locations`.
@@ -30,5 +30,5 @@ Functions from the `webhoser` package start with `wh` while functions of the `we
 * `whe_similarity` **beta** function to compare similarity between articles and a given document (i.e. : press release).
 * `whe_search` Scan for terms in the body of articles.
 
-**Important**: most functions rely on the `highlightText` field returned only if `highlight = TRUE` in `wh_news` or `wh_broadcasts` call, see examples.
+**Important**: many functions rely on the `highlightText` field returned only if `highlight = TRUE` in `wh_news`, see functions' examples.
 
