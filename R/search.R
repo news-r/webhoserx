@@ -67,7 +67,7 @@ whe_search.data.frame <- function(wh, search, output, where = "text"){
 #'   wh_collect() -> rstats # collect results
 #'
 #' rstats %>%
-#'   whe_search_1p("Hadley")
+#'   whe_search_1p("Hadley", "hadley")
 #' }
 #'
 #' @return if \code{data.frame} is passed will append a boolean column named \code{output}.
@@ -92,7 +92,7 @@ whe_search_1p.data.frame <- function(wh, search, output){
   })
 
   mentions <- sapply(para, function(x, y){
-    grep(x, y)
+    grep(y, x)
   }, y = search) %>%
     lapply(., function(x){
       ifelse(length(x), x,  0)
