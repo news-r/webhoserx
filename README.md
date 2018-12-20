@@ -1,4 +1,4 @@
-# webhoser.extension
+# webhoserx
 
 Extension for the [webhoser](https://webhoser.john-coene.com) package, mainly for feature extraction from text.
 
@@ -27,6 +27,7 @@ Functions from the `webhoser` package start with `wh` while functions of the `we
 * `whe_quotes` identify articles with quotations.
 * `whe_date` parses date.
 * `whe_lexdiv` get lexical diversity. 
+* `whe_sentiment` get sentiment of text.
 * `whe_similarity` **beta** function to compare similarity between articles and a given document (i.e. : press release).
 * `whe_search` Scan for terms in the body of articles.
 

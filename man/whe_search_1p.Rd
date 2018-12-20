@@ -33,7 +33,7 @@ token \%>\%
   wh_collect() -> rstats # collect results
 
 rstats \%>\%
-  whe_search_1p("Hadley")
+  whe_search_1p("Hadley", "hadley")
 }
 
 }
