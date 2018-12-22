@@ -39,7 +39,7 @@ whe_lexdiv.data.frame <- function(wh, measure = "R"){
   dfm <- quanteda::dfm(wh$text)
   lexdiv <- quanteda::textstat_lexdiv(dfm, measure = measure)
 
-  wh$lexdiv <- unname(lexdiv)
+  wh$lexdiv <- unname(lexdiv[[2]])
   wh
 }
 

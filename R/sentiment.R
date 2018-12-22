@@ -27,13 +27,17 @@
 #' @export
 whe_sentiment <- function(wh, method = "afinn", ...) UseMethod("whe_sentiment")
 
+#' @rdname whe_sentiment
+#' @method whe_sentiment character
 #' @export
 whe_sentiment.character <- function(wh, method = "afinn", ...){
   syuzhet::get_sentiment(wh, method = method, ...)
 }
 
+#' @rdname whe_sentiment
+#' @method whe_sentiment data.frame
 #' @export
-whe_sentiment.character <- function(wh, method = "afinn", ...){
+whe_sentiment.data.frame <- function(wh, method = "afinn", ...){
   wh[["sentiment"]] <- syuzhet::get_sentiment(wh[["text"]], method = method, ...)
   wh
 }

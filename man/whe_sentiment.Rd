@@ -2,9 +2,15 @@
 % Please edit documentation in R/sentiment.R
 \name{whe_sentiment}
 \alias{whe_sentiment}
+\alias{whe_sentiment.character}
+\alias{whe_sentiment.data.frame}
 \title{Sentiment}
 \usage{
 whe_sentiment(wh, method = "afinn", ...)
+
+\method{whe_sentiment}{character}(wh, method = "afinn", ...)
+
+\method{whe_sentiment}{data.frame}(wh, method = "afinn", ...)
 }
 \arguments{
 \item{wh}{\emph{highlighted} object returned by \link[webhoser]{wh_collect}, see examples.}
