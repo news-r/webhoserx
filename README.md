@@ -11,7 +11,7 @@ remotes::install_github("JohnCoene/webhoser.extension")
 
 ## Functions
 
-Functions from the `webhoser` package start with `wh` while functions of the `webhoser.extension` package start with `whe`.
+Functions from the `webhoser` package start with `wh` while functions of the `webhoserx` package start with `whe`.
 
 * `whe_pre_gram` and `whe_post_gram` to extract n-grams preceding and following mentions (highlighted terms).
 * `whe_paragraphs` count paragraphs.
