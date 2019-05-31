@@ -6,7 +6,7 @@ Extension for the [webhoser](https://webhoser.john-coene.com) package, mainly fo
 
 ```r
 # install.packages("remotes")
-remotes::install_github("JohnCoene/webhoser.extension")
+remotes::install_github("news-r/webhoserx")
 ```
 
 ## Functions
